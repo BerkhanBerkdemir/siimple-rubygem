@@ -1,0 +1,128 @@
+//
+// Siimple - minimal css framework for flat and clean websites
+// Under the MIT LICENSE.
+// License:    https://github.com/siimple/siimple/blob/master/LICENSE.md
+// Repository: https://github.com/siimple
+// Website:    http://siimple.juanes.xyz
+//
+
+//Spinner variables
+$siimple-spinner-size: 10px;
+$siimple-spinner-space: 15px;
+
+//Spinner large variables
+$siimple-spinner-large-size: 15px;
+$siimple-spinner-large-space: 20px;
+
+//Spinner small variables
+$siimple-spinner-small-size: 8px;
+$siimple-spinner-small-space: 13px;
+
+//Spinner mixin
+@mixin siimple-spinner
+{
+  //Spinner animation
+  @keyframes siimple_spinner_animation
+  {
+    50% { background-color: transparent; }
+  }
+
+  @include siimple-spinner-base();
+  display: block;
+  text-indent: -9999em;
+  font-size: 10px;
+  position: relative;
+  transform: translateZ(0);
+  animation-delay: 0.33s;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+
+  //Before spinner
+  &:before
+  {
+    @include siimple-spinner-base();
+    //animation-delay: -0.66s;
+    position: absolute;
+    left: calc(#{$siimple-spinner-space} * -1);
+    top: 0;
+  }
+
+  //After spinner
+  &:after
+  {
+    @include siimple-spinner-base();
+    animation-delay: 0.66s;
+    position: absolute;
+    left: $siimple-spinner-space;
+    top: 0;
+  }
+}
+
+//Base spinner mixin
+@mixin siimple-spinner-base
+{
+  width: $siimple-spinner-size;
+  height: $siimple-spinner-size;
+  content: "";
+  //background-color: $siimple-grey-2;
+  animation: siimple_spinner_animation 1s infinite ease-in-out;
+  animation-fill-mode: both;
+  border-radius: 100px;
+}
+
+//Colored spinner mixin
+@mixin siimple-spinner-color($color)
+{
+  //Apply to base, after and before
+  &, &:after, &:before
+  {
+    background-color: siimple-color($color, 2);
+  }
+}
+
+//Small spinner mixin
+@mixin siimple-spinner-small()
+{
+  //Spinner small common styles
+  &, &:before, &:after
+  {
+    width: $siimple-spinner-small-size !important;
+    height: $siimple-spinner-small-size !important;
+  }
+
+  //Spinner small before
+  &:before
+  {
+    left: calc(#{$siimple-spinner-small-space} * -1) !important;
+  }
+
+  //Spinner small after
+  &:after
+  {
+    left: $siimple-spinner-small-space !important;
+  }
+}
+
+//Large spinner mixin
+@mixin siimple-spinner-large()
+{
+  //Spinner large
+  &, &:before, &:after
+  {
+    width: $siimple-spinner-large-size !important;
+    height: $siimple-spinner-large-size !important;
+  }
+
+  //Spinner large before
+  &:before
+  {
+    left: calc(#{$siimple-spinner-large-space} * -1) !important;
+  }
+
+  //Spinner large after
+  &:after
+  {
+    left: $siimple-spinner-large-space !important;
+  }
+}

@@ -1,0 +1,20 @@
+PATH
+  remote: .
+  specs:
+    siimple (0.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rake (12.3.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.16)
+  rake (~> 12.3)
+  siimple!
+
+BUNDLED WITH
+   1.16.2

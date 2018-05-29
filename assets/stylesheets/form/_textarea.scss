@@ -1,0 +1,30 @@
+//
+// Siimple - minimal css framework for flat and clean websites
+// Under the MIT LICENSE.
+// License:    https://github.com/siimple/siimple/blob/master/LICENSE.md
+// Repository: https://github.com/siimple
+// Website:    https://www.siimple.xyz
+//
+
+//Textarea variables
+$siimple-textarea-line: $siimple-default-text-line;
+$siimple-textarea-padding: 10px;
+$siimple-textarea-radius: $siimple-default-border-radius;
+
+//Textarea mixin
+@mixin siimple-textarea()
+{
+  display: inline-block;
+  line-height: $siimple-textarea-line;
+  //font-family: $siimple-default-text-font;
+  font-size: $siimple-default-text-size;
+  color: $siimple-default-text-color;
+  padding: $siimple-textarea-padding;
+  border: 0px;
+  outline: 0px;
+  border-radius: $siimple-textarea-radius;
+  background-color: $siimple-grey;
+
+  //Fluid textarea
+  &--fluid { width: 100%; }
+}
