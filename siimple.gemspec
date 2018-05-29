@@ -17,6 +17,9 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files`.split('\n')
   spec.require_paths = ['lib']
 
+  spec.add_runtime_dependency 'sass', '>= 3.5.2'
+  spec.add_runtime_dependency 'autoprefixer-rails', '>= 6.0.3'
+
   spec.add_development_dependency 'bundler', '~> 1.16'
   spec.add_development_dependency 'rake', '~> 12.3'
 end
