@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    siimple (0.1.0)
+    siimple (3.0.0)
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.5.2)
 
