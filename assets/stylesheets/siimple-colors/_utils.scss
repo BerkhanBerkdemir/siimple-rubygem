@@ -1,0 +1,34 @@
+//
+// siimple-colors: a color palette for UI design
+// Under the MIT LICENSE.
+// License:    https://github.com/siimple/siimple-colors/blob/master/LICENSE.md
+// Repository: https://github.com/siimple/siimple-colors
+// Website:    https://www.siimple.xyz/colors
+//
+
+//Get a color by index
+@function siimple-color($color, $index)
+{
+  //Get the colors list
+  $list: map-get($siimple-palette, "#{$color}");
+
+  //Get the color value
+  $value: map-get($list, "#{$index}");
+
+  //Return this color
+  @return $value;
+};
+
+//Get the base color
+@function siimple-color-base($color)
+{
+  //Return the color
+  @return siimple-color($color, $siimple-colors-base-index);
+};
+
+//Get the over color
+@function siimple-color-over($color)
+{
+  //Return the color
+  @return siimple-color($color, $siimple-colors-over-index);
+};
