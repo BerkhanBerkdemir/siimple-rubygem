@@ -20,7 +20,7 @@ class Updater
 
   def update
     # Delete old assets
-    puts "== Old assets are deleting =="
+    puts "+ rm -rf #{@save_to[:scss]}"
     system "rm -rf #{@save_to[:scss]}"
 
     # Assign a variable for siimple repository URL
@@ -29,6 +29,7 @@ class Updater
     clone repository_url
 
     # Checkout the version of siimple
+    puts "+ cd siimple; git checkout tags/v#{@version}"
     system "cd siimple; git checkout tags/v#{@version}"
 
     # Assign a variable for siimple-color repository URL
@@ -37,18 +38,20 @@ class Updater
     clone siimple_colors_repository_url
 
     # Move siimple-colors into siimple folder
-    system 'mv siimple-colors siimple/scss/'
+    puts '+ mv siimple-colors/scss siimple/scss/siimple-colors'
+    system 'mv siimple-colors/scss siimple/scss/siimple-colors'
 
     # Save the folder
-    puts '== New SCSS files are moving to new one =='
+    puts "+ mv siimple/scss #{@save_to[:scss]}"
     system "mv siimple/scss #{@save_to[:scss]}"
-    puts '== New assets read to go =='
   end
 
   def clean
-    puts '== The directory is cleaning =='
+    puts "+ rm -rf #{@pwd}/siimple"
     system "rm -rf #{@pwd}/siimple"
-    puts '== The directory is clean =='
+
+    puts "+ rm -rf #{@pwd}/siimple-colors"
+    system "rm -rf #{@pwd}/siimple-colors"
   end
 
   private
@@ -74,6 +77,7 @@ class Updater
   #   default: 5
 
   def clone(url, depth = 5)
+    puts "+ git clone --depth=#{depth} #{url}"
     system "git clone --depth=#{depth} #{url}"
   end
 end
