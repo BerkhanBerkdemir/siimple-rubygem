@@ -8,7 +8,7 @@
 
 1\. Add `siimple` to your Gemfile
 
-```
+```ruby
 gem 'siimple', '~> 3.0.0', :git => 'https://github.com/BerkhanBerkdemir/siimple-rubygem.git'
 ```
 
