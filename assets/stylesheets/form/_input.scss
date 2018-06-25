@@ -5,30 +5,45 @@
 // Repository: https://github.com/siimple
 // Website:    https://wwww.siimple.xyz
 //
+@import "../_variables.scss";
+@import "../_functions.scss";
 
-//Input variables
-$siimple-input-height: 30px;
+$siimple-input-font-size: 14px;
+$siimple-input-height: 34px;
+$siimple-input-line-height: $siimple-input-height;
 $siimple-input-padding: 10px;
 $siimple-input-radius: $siimple-default-border-radius;
 
-//Input mixin
-@mixin siimple-input()
-{
-  display: inline-block;
-  height: $siimple-input-height;
-  line-height: $siimple-input-height;
-  //font-family: $siimple-default-text-font;
-  font-size: $siimple-default-text-size;
-  color: $siimple-navy;
-  padding-left: $siimple-input-padding;
-  padding-right: $siimple-input-padding;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  border: 0px;
-  border-radius: $siimple-input-radius;
-  outline: 0px;
-  background-color: $siimple-grey;
+.siimple-input {
+    display: inline-block;
+    height: $siimple-input-height;
+    line-height: $siimple-input-line-height;
+    //font-family: $siimple-default-text-font;
+    font-size: $siimple-input-font-size;
+    color: $siimple-default-color;
+    padding: {
+        left: $siimple-input-padding;
+        right: $siimple-input-padding;
+        top: 0px;
+        bottom: 0px;
+    }
+    border: 0px;
+    border-radius: $siimple-input-radius;
+    outline: 0px;
+    background-color: siimple-default-color("light");
+    vertical-align: top;
 
-  //Fluid input
-  &--fluid { width: 100%; }
+    &--fluid {
+        width: 100%;
+    }
+
+    &--light {
+        background-color: $siimple-default-white;
+    }
+
+    &--dark {
+        background-color: siimple-default-color("dark");
+        color: $siimple-default-white;
+    }
 }
+

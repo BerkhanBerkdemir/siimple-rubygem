@@ -6,14 +6,15 @@
 // Website:    https://www.siimple.xyz
 //
 @import "../_variables.scss";
-@import "../_utils.scss";
 
-//Content class
-.siimple-content {
+//Paragraph class
+.siimple-paragraph, 
+.siimple-p {
     display: block;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    //Content sizes
-    @include siimple-sizing();
+    //font-family: $siimple-default-text-font;
+    line-height: $siimple-default-line-height;
+    font-size: $siimple-default-font-size;
+    margin-top: 0px;
+    margin-bottom: $siimple-default-margin-bottom;
 }
 

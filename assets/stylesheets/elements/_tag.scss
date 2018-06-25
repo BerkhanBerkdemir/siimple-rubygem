@@ -7,29 +7,43 @@
 //
 @import "../_variables.scss";
 @import "../_functions.scss";
-@import "../_utils.scss";
 
-//Footer class
-.siimple-footer {
-    display: block;
-    padding-top: 50px;
-    padding-bottom: 80px;
-    //Footer sizes
-    @include siimple-sizing();
-    //Footer colors
+//Tag variables
+$siimple-tag-height: 19px;
+$siimple-tag-padding: 6px;
+
+//Tag class
+.siimple-tag {
+    display: inline-block;
+    //height: $siimple-tag-height;
+    font-size: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: $siimple-tag-height;
+    border-radius: 4px;
+    padding: {
+        left: $siimple-tag-padding;
+        right: $siimple-tag-padding;
+    }
+    margin-right: 1px;
+    //margin-bottom: 8px;
+    //Rounded tag 
+    &--rounded {
+        border-radius: 15px;        
+    }
+    //Tag colors
     @each $color in $siimple-default-colors {
         &#{&}--#{$color} {
-            background-color: siimple-default-color($color, "base");
+            background-color: siimple-default-color($color);
             color: siimple-default-color($color, "over");
         }
     }
     //Legacy colors
     //To be deprecated in future major release
-    @each $color, $value in $siimple-legacy-colors {
+    @each $color in $siimple-legacy-colors {
         &#{&}--#{$color} {
             background-color: siimple-legacy-color($color, "base");
             color: siimple-legacy-color($color, "over");
         }
     }
 }
-
