@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Siimple', 'Berkhan Berkdemir']
   spec.email         = ['community@siimple.xyz']
 
-  spec.summary       = 'Minimal and responsive CSS Framework for flat and clean designs.'
-  spec.description   = 'Minimal and responsive CSS Framework for flat and clean designs.'
-  spec.homepage      = 'https://github.com/siimple/siimple'
+  spec.summary       = 'siimple Ruby Gem for Rails applications.'
+  spec.description   = 'siimple Ruby gem for Minimal and responsive CSS Framework for flat and clean designs.'
+  spec.homepage      = 'https://github.com/BerkhanBerkdemir/siimple-rubygem'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split('\n')
