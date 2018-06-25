@@ -5,10 +5,13 @@
 // Repository: https://github.com/siimple
 // Website:    https://www.siimple.xyz
 //
+@import "../_variables.scss";
+@import "../_functions.scss";
 
-//Grid class
-.siimple
-{
-  //Grid element
-  &-grid { @include siimple-grid; }
+//Small class
+.siimple-small {
+    //font-family: $siimple-default-text-font;
+    font-size: 13px;
+    color: siimple-default-color("dark", "light");
 }
+

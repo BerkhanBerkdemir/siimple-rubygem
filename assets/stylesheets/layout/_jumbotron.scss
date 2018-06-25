@@ -5,78 +5,70 @@
 // Repository: https://github.com/siimple
 // Website:    https://www.siimple.xyz
 //
+@import "../_variables.scss";
+@import "../_functions.scss";
+@import "../_utils.scss";
 
 //Jumbotron variables
-$siimple-jumbotron-padding-top: 120px;
-$siimple-jumbotron-padding-bottom: 120px;
+$siimple-jumbotron-padding: 85px;
 
-//Jumbotron title variables
-$siimple-jumbotron-title-font-size: 50px;
-$siimple-jumbotron-title-line-height: 60px;
-$siimple-jumbotron-title-margin-top: 0px;
-$siimple-jumbotron-title-margin-bottom: 0px;
+//Jumbotron class
+.siimple-jumbotron {
+    display: block;
+    //font-family: $siimple-default-text-font;
+    padding-top: $siimple-jumbotron-padding;
+    padding-bottom: $siimple-jumbotron-padding;
+    @include siimple-sizing();
+    //Common styles
+    &-title, 
+    &-subtitle,
+    &-detail {
+        display: block;
+        text-decoration: none;
+    }
+    //Jumbotron title
+    &-title {
+        //line-height: 60px;
+        font-weight: bold;
+        font-size: 40px;
+        //margin-top: 0px;
+        //margin-bottom: 0px;
+    }
+    //Jumbotron subtitle
+    &-subtitle {
+        //line-height: 40px;
+        font-size: 22px;
+        opacity: 0.7;
+        //margin-top: 10px;
+        //margin-bottom: 10px;
+    }
+    //Jumbotron detail
+    &-detail {
+        line-height: 22px;
+        font-size: 16px;
+        opacity: 0.5;
+        //margin-top: 10px;
+        //margin-bottom: 10px;
+    }
+    &-title + &-subtitle,
+    &-title + &-detail,
+    &-subtitle + &-detail {
+        margin-top: 5px;
+    }
+    //Jumbotron colors
+    @each $color in $siimple-default-colors {
+        &#{&}--#{$color} {
+            background-color: siimple-default-color($color);
+            color: siimple-default-color($color, "over");
+        }
+    }
+    //Legacy jumbotron colors
+    //To be deprecated in future major release
+    @each $color in $siimple-legacy-colors {
+        &#{&}--#{$color} {
+            background-color: siimple-legacy-color($color, "base");
+            color: siimple-legacy-color($color, "over");
+        }
+    }
+}
 
-//Jumbotron subtitle variables
-$siimple-jumbotron-subtitle-font-size: 30px;
-$siimple-jumbotron-subtitle-line-height: 40px;
-$siimple-jumbotron-subtitle-margin-top: 10px;
-$siimple-jumbotron-subtitle-margin-bottom: 10px;
-
-//Jumbotron detail variables
-$siimple-jumbotron-detail-font-size: 20px;
-$siimple-jumbotron-detail-line-height: 30px;
-$siimple-jumbotron-detail-margin-top: 10px;
-$siimple-jumbotron-detail-margin-bottom: 10px;
-
-//Jumbotron
-@mixin siimple-jumbotron()
-{
-  display: block;
-  //font-family: $siimple-default-text-font;
-  padding-top: $siimple-jumbotron-padding-top;
-  padding-bottom: $siimple-jumbotron-padding-bottom;
-
-  //Jumbotron sizes
-  @include siimple-size();
-};
-
-//Jumbotron title mixin
-@mixin siimple-jumbotron-title()
-{
-  display: block;
-  text-decoration: none;
-  line-height: $siimple-jumbotron-title-line-height;
-  font-weight: bold;
-  font-size: $siimple-jumbotron-title-font-size;
-  margin-top: $siimple-jumbotron-title-margin-top;
-  margin-bottom: $siimple-jumbotron-title-margin-bottom;
-};
-
-//Jumbotron subtitle mixin
-@mixin siimple-jumbotron-subtitle()
-{
-  display: block;
-  text-decoration: none;
-  line-height: $siimple-jumbotron-subtitle-line-height;
-  font-size: $siimple-jumbotron-subtitle-font-size;
-  margin-top: $siimple-jumbotron-subtitle-margin-top;
-  margin-bottom: $siimple-jumbotron-subtitle-margin-bottom;
-};
-
-//Jumbotron detail text
-@mixin siimple-jumbotron-detail()
-{
-  display: block;
-  text-decoration: none;
-  line-height: $siimple-jumbotron-detail-line-height;
-  font-size: $siimple-jumbotron-detail-font-size;
-  margin-top: $siimple-jumbotron-detail-margin-top;
-  margin-bottom: $siimple-jumbotron-detail-margin-bottom;
-};
-
-//Jumbotron colors
-@mixin siimple-jumbotron-color($color)
-{
-  background-color: siimple-color($color, 1);
-  color: siimple-color-over($color);
-};

@@ -5,31 +5,27 @@
 // Repository: https://github.com/siimple
 // Website:    https://www.siimple.xyz
 //
+@import "../_variables.scss";
+@import "../_functions.scss";
 
 //Blockquote variables
-$siimple-blockquote-color: $siimple-navy-4;
-$siimple-blockquote-border: 4px;
+$siimple-blockquote-color: siimple-default-color("dark", "light");
 
-$siimple-blockquote-padding-top: 10px;
-$siimple-blockquote-padding-bottom: 10px;
-$siimple-blockquote-padding-left: 20px;
-$siimple-blockquote-padding-right: 10px;
-
-$siimple-blockquote-margin-top: 0px;
-$siimple-blockquote-margin-bottom: $siimple-default-margin-bottom;
-
-//Blockquote mixin
-@mixin siimple-blockquote
-{
-  display: block;
-  //font-family: $siimple-default-text-font;
-  color: $siimple-blockquote-color;
-  font-size: $siimple-default-text-size;
-  border-left: $siimple-blockquote-border solid $siimple-blockquote-color;
-  padding-top: $siimple-blockquote-padding-top;
-  padding-bottom: $siimple-blockquote-padding-bottom;
-  padding-left: $siimple-blockquote-padding-left;
-  padding-right: $siimple-blockquote-padding-right;
-  margin-top: $siimple-blockquote-padding-top;
-  margin-bottom: $siimple-blockquote-margin-bottom;
+//Blockquote class
+.siimple-blockquote {
+    display: block;
+    //font-family: $siimple-default-text-font;
+    color: $siimple-blockquote-color;
+    font-size: $siimple-default-font-size;
+    line-height: $siimple-default-line-height;
+    border-left: 4px solid $siimple-blockquote-color;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 20px;
+    margin-bottom: $siimple-default-margin-bottom;
+    //Fix default margin values in blockquote element
+    margin-left: 0px;
+    margin-right: 0px;
 }
+
