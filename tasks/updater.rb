@@ -8,7 +8,6 @@
 # Website:    https://siimple.xyz
 
 class Updater
-  # TODO: Specify the branch and caching path
   def initialize
     require 'siimple/version'
 
@@ -32,15 +31,6 @@ class Updater
     puts "+ cd siimple; git checkout tags/v#{@version}"
     system "cd siimple; git checkout tags/v#{@version}"
 
-    # Assign a variable for siimple-color repository URL
-    siimple_colors_repository_url = github 'siimple-colors'
-    # Clone siimple-colors
-    clone siimple_colors_repository_url
-
-    # Move siimple-colors into siimple folder
-    puts '+ mv siimple-colors/scss siimple/scss/siimple-colors'
-    system 'mv siimple-colors/scss siimple/scss/siimple-colors'
-
     # Save the folder
     puts "+ mv siimple/scss #{@save_to[:scss]}"
     system "mv siimple/scss #{@save_to[:scss]}"
@@ -49,21 +39,12 @@ class Updater
   def clean
     puts "+ rm -rf #{@pwd}/siimple"
     system "rm -rf #{@pwd}/siimple"
-
-    puts "+ rm -rf #{@pwd}/siimple-colors"
-    system "rm -rf #{@pwd}/siimple-colors"
   end
 
   private
 
   ##
   # Creates GitHub URLs with owner and repository name
-  #
-  # String: +repository+
-  # String: +owner+
-  #   default: 'siimple'
-  #
-  # Return String of the URL
 
   def github(repository, owner = 'siimple')
     "https://github.com/#{owner}/#{repository}.git"
@@ -71,12 +52,8 @@ class Updater
 
   ##
   # Clone a git project
-  #
-  # String: +url+
-  # Integer: +depth+
-  #   default: 5
 
-  def clone(url, depth = 5)
+  def clone(url, depth = 10)
     puts "+ git clone --depth=#{depth} #{url}"
     system "git clone --depth=#{depth} #{url}"
   end
